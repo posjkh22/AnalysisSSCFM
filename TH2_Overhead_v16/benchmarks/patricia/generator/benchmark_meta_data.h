@@ -2,8 +2,8 @@
 #define FROM	0x400e40
 #define TO		0x4023c0
 
-#define SIGNATURE_QUEUE_SIZE 350000 	// one
-//#define SIGNATURE_QUEUE_SIZE 180000 	// two
+//#define SIGNATURE_QUEUE_SIZE 350000 	// one
+#define SIGNATURE_QUEUE_SIZE 180000 	// two
 //#define SIGNATURE_QUEUE_SIZE 120000 	// three 
 //#define SIGNATURE_QUEUE_SIZE 90000 	// four 
 

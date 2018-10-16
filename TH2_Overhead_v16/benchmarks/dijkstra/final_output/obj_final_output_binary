@@ -47,16 +47,12 @@ Disassembly of section .note.gnu.build-id:
   40027e:	00 00                	add    %al,(%rax)
   400280:	47                   	rex.RXB
   400281:	4e 55                	rex.WRX push %rbp
-  400283:	00 c9                	add    %cl,%cl
-  400285:	49 61                	rex.WB (bad) 
-  400287:	97                   	xchg   %eax,%edi
-  400288:	b9 6f a9 6b d6       	mov    $0xd66ba96f,%ecx
-  40028d:	67 22 df             	addr32 and %bh,%bl
-  400290:	06                   	(bad)  
-  400291:	f9                   	stc    
-  400292:	f2 83 e9 f6          	repnz sub $0xfffffff6,%ecx
-  400296:	fc                   	cld    
-  400297:	f9                   	stc    
+  400283:	00 20                	add    %ah,(%rax)
+  400285:	5c                   	pop    %rsp
+  400286:	3a 4a db             	cmp    -0x25(%rdx),%cl
+  400289:	55                   	push   %rbp
+  40028a:	0f 59 9b 7b 7d 22 80 	mulps  -0x7fdd8285(%rbx),%xmm3
+  400291:	c0 ad 87 8c 4a a3 de 	shrb   $0xde,-0x5cb57379(%rbp)
 
 Disassembly of section .gnu.hash:
 
@@ -196,7 +192,7 @@ Disassembly of section .dynsym:
   4004eb:	00 12                	add    %dl,(%rdx)
 	...
   4004fd:	00 00                	add    %al,(%rax)
-  4004ff:	00 2d 00 00 00 20    	add    %ch,0x20000000(%rip)        # 20400505 <_end+0x1190eb85>
+  4004ff:	00 2d 00 00 00 20    	add    %ch,0x20000000(%rip)        # 20400505 <_end+0x18b7f985>
 	...
   400515:	00 00                	add    %al,(%rax)
   400517:	00 c4                	add    %al,%ah
@@ -223,7 +219,7 @@ Disassembly of section .dynsym:
   40057b:	00 12                	add    %dl,(%rdx)
 	...
   40058d:	00 00                	add    %al,(%rax)
-  40058f:	00 1d 01 00 00 11    	add    %bl,0x11000001(%rip)        # 11400596 <_end+0x290ec16>
+  40058f:	00 1d 01 00 00 11    	add    %bl,0x11000001(%rip)        # 11400596 <_end+0x9b7fa16>
   400595:	00 1a                	add    %bl,(%rdx)
   400597:	00 00                	add    %al,(%rax)
   400599:	51                   	push   %rcx
@@ -507,7 +503,7 @@ Disassembly of section .rela.dyn:
   400812:	60                   	(bad)  
   400813:	00 00                	add    %al,(%rax)
   400815:	00 00                	add    %al,(%rax)
-  400817:	00 05 00 00 00 1e    	add    %al,0x1e000000(%rip)        # 1e40081d <_end+0xf90ee9d>
+  400817:	00 05 00 00 00 1e    	add    %al,0x1e000000(%rip)        # 1e40081d <_end+0x16b7fc9d>
 	...
 
 Disassembly of section .rela.plt:
@@ -2295,7 +2291,7 @@ Disassembly of section .text:
   40243d:	7e ec                	jle    40242b <init_monitor+0x44>
   40243f:	8b 05 df 2c 20 00    	mov    0x202cdf(%rip),%eax        # 605124 <monitor_process_num>
   402445:	89 c0                	mov    %eax,%eax
-  402447:	48 69 c0 00 87 93 03 	imul   $0x3938700,%rax,%rax
+  402447:	48 69 c0 80 c3 c9 01 	imul   $0x1c9c380,%rax,%rax
   40244e:	48 05 80 fd 60 00    	add    $0x60fd80,%rax
   402454:	48 89 05 8d d8 20 00 	mov    %rax,0x20d88d(%rip)        # 60fce8 <signature_queue>
   40245b:	e8 c0 e6 ff ff       	callq  400b20 <getpid@plt>
@@ -2390,7 +2386,7 @@ Disassembly of section .text:
   4025a1:	83 c0 01             	add    $0x1,%eax
   4025a4:	89 05 76 2b 20 00    	mov    %eax,0x202b76(%rip)        # 605120 <current_queue_size>
   4025aa:	8b 05 70 2b 20 00    	mov    0x202b70(%rip),%eax        # 605120 <current_queue_size>
-  4025b0:	3d c0 e1 e4 00       	cmp    $0xe4e1c0,%eax
+  4025b0:	3d e0 70 72 00       	cmp    $0x7270e0,%eax
   4025b5:	75 4e                	jne    402605 <enqueue_signature+0x90>
   4025b7:	b8 00 00 00 00       	mov    $0x0,%eax
   4025bc:	e8 24 ff ff ff       	callq  4024e5 <monitor_thread_generator>
@@ -2401,7 +2397,7 @@ Disassembly of section .text:
   4025d4:	89 05 4a 2b 20 00    	mov    %eax,0x202b4a(%rip)        # 605124 <monitor_process_num>
   4025da:	8b 05 44 2b 20 00    	mov    0x202b44(%rip),%eax        # 605124 <monitor_process_num>
   4025e0:	89 c0                	mov    %eax,%eax
-  4025e2:	48 69 c0 00 87 93 03 	imul   $0x3938700,%rax,%rax
+  4025e2:	48 69 c0 80 c3 c9 01 	imul   $0x1c9c380,%rax,%rax
   4025e9:	48 05 80 fd 60 00    	add    $0x60fd80,%rax
   4025ef:	48 89 05 f2 d6 20 00 	mov    %rax,0x20d6f2(%rip)        # 60fce8 <signature_queue>
   4025f6:	be 01 00 00 00       	mov    $0x1,%esi
@@ -2431,7 +2427,7 @@ Disassembly of section .text:
   402642:	bf 00 00 00 00       	mov    $0x0,%edi
   402647:	e8 12 07 00 00       	callq  402d5e <static_push>
   40264c:	8b 05 ce 2a 20 00    	mov    0x202ace(%rip),%eax        # 605120 <current_queue_size>
-  402652:	3d c0 e1 e4 00       	cmp    $0xe4e1c0,%eax
+  402652:	3d e0 70 72 00       	cmp    $0x7270e0,%eax
   402657:	75 4e                	jne    4026a7 <enqueue_signature_with_call+0x9f>
   402659:	b8 00 00 00 00       	mov    $0x0,%eax
   40265e:	e8 82 fe ff ff       	callq  4024e5 <monitor_thread_generator>
@@ -2442,7 +2438,7 @@ Disassembly of section .text:
   402676:	89 05 a8 2a 20 00    	mov    %eax,0x202aa8(%rip)        # 605124 <monitor_process_num>
   40267c:	8b 05 a2 2a 20 00    	mov    0x202aa2(%rip),%eax        # 605124 <monitor_process_num>
   402682:	89 c0                	mov    %eax,%eax
-  402684:	48 69 c0 00 87 93 03 	imul   $0x3938700,%rax,%rax
+  402684:	48 69 c0 80 c3 c9 01 	imul   $0x1c9c380,%rax,%rax
   40268b:	48 05 80 fd 60 00    	add    $0x60fd80,%rax
   402691:	48 89 05 50 d6 20 00 	mov    %rax,0x20d650(%rip)        # 60fce8 <signature_queue>
   402698:	be 01 00 00 00       	mov    $0x1,%esi
@@ -2470,7 +2466,7 @@ Disassembly of section .text:
   4026df:	bf 00 00 00 00       	mov    $0x0,%edi
   4026e4:	e8 ed 06 00 00       	callq  402dd6 <static_pop>
   4026e9:	8b 05 31 2a 20 00    	mov    0x202a31(%rip),%eax        # 605120 <current_queue_size>
-  4026ef:	3d c0 e1 e4 00       	cmp    $0xe4e1c0,%eax
+  4026ef:	3d e0 70 72 00       	cmp    $0x7270e0,%eax
   4026f4:	75 4e                	jne    402744 <enqueue_signature_with_return+0x9a>
   4026f6:	b8 00 00 00 00       	mov    $0x0,%eax
   4026fb:	e8 e5 fd ff ff       	callq  4024e5 <monitor_thread_generator>
@@ -2481,7 +2477,7 @@ Disassembly of section .text:
   402713:	89 05 0b 2a 20 00    	mov    %eax,0x202a0b(%rip)        # 605124 <monitor_process_num>
   402719:	8b 05 05 2a 20 00    	mov    0x202a05(%rip),%eax        # 605124 <monitor_process_num>
   40271f:	89 c0                	mov    %eax,%eax
-  402721:	48 69 c0 00 87 93 03 	imul   $0x3938700,%rax,%rax
+  402721:	48 69 c0 80 c3 c9 01 	imul   $0x1c9c380,%rax,%rax
   402728:	48 05 80 fd 60 00    	add    $0x60fd80,%rax
   40272e:	48 89 05 b3 d5 20 00 	mov    %rax,0x20d5b3(%rip)        # 60fce8 <signature_queue>
   402735:	be 01 00 00 00       	mov    $0x1,%esi
@@ -2843,12 +2839,12 @@ Disassembly of section .text:
   402bc9:	ba 9d 31 95 47       	mov    $0x4795319d,%edx
   402bce:	89 c8                	mov    %ecx,%eax
   402bd0:	f7 ea                	imul   %edx
-  402bd2:	c1 fa 16             	sar    $0x16,%edx
+  402bd2:	c1 fa 15             	sar    $0x15,%edx
   402bd5:	89 c8                	mov    %ecx,%eax
   402bd7:	c1 f8 1f             	sar    $0x1f,%eax
   402bda:	29 c2                	sub    %eax,%edx
   402bdc:	89 d0                	mov    %edx,%eax
-  402bde:	69 c0 c0 e1 e4 00    	imul   $0xe4e1c0,%eax,%eax
+  402bde:	69 c0 e0 70 72 00    	imul   $0x7270e0,%eax,%eax
   402be4:	29 c1                	sub    %eax,%ecx
   402be6:	89 c8                	mov    %ecx,%eax
   402be8:	66 0f ef c0          	pxor   %xmm0,%xmm0
@@ -2895,7 +2891,7 @@ Disassembly of section .text:
   402c8b:	eb 0a                	jmp    402c97 <CFE_INJECTION+0x10d>
   402c8d:	bf 9a 37 40 00       	mov    $0x40379a,%edi
   402c92:	e8 69 de ff ff       	callq  400b00 <puts@plt>
-  402c97:	e9 da e4 ff ff       	jmpq   401176 <dijkstra+0x186>
+  402c97:	e9 a9 e5 ff ff       	jmpq   401245 <dijkstra+0x255>
   402c9c:	eb 01                	jmp    402c9f <CFE_INJECTION+0x115>
   402c9e:	90                   	nop
   402c9f:	c9                   	leaveq 
@@ -3691,7 +3687,7 @@ Disassembly of section .rodata:
   4035e0:	75 6d                	jne    40364f <_IO_stdin_used+0x15f>
   4035e2:	62                   	(bad)  
   4035e3:	65 72 3a             	gs jb  403620 <_IO_stdin_used+0x130>
-  4035e6:	09 25 64 2c 20 73    	or     %esp,0x73202c64(%rip)        # 73606250 <_end+0x64b148d0>
+  4035e6:	09 25 64 2c 20 73    	or     %esp,0x73202c64(%rip)        # 73606250 <_end+0x6bd856d0>
   4035ec:	74 61                	je     40364f <_IO_stdin_used+0x15f>
   4035ee:	74 69                	je     403659 <_IO_stdin_used+0x169>
   4035f0:	63 5f 73             	movslq 0x73(%rdi),%ebx
@@ -3825,7 +3821,7 @@ Disassembly of section .rodata:
   403727:	00 20                	add    %ah,(%rax)
   403729:	20 20                	and    %ah,(%rax)
   40372b:	20 20                	and    %ah,(%rax)
-  40372d:	20 3d 3d 3e 3e 20    	and    %bh,0x203e3e3d(%rip)        # 207e7570 <_end+0x11cf5bf0>
+  40372d:	20 3d 3d 3e 3e 20    	and    %bh,0x203e3e3d(%rip)        # 207e7570 <_end+0x18f669f0>
   403733:	20 43 46             	and    %al,0x46(%rbx)
   403736:	45 5f                	rex.RB pop %r15
   403738:	4f                   	rex.WRXB
@@ -4712,7 +4708,7 @@ Disassembly of section .eh_frame:
   403fe1:	8e 03                	mov    (%rbx),%es
   403fe3:	45 0e                	rex.RB (bad) 
   403fe5:	20 8d 04 42 0e 28    	and    %cl,0x280e4204(%rbp)
-  403feb:	8c 05 48 0e 30 86    	mov    %es,-0x79cff1b8(%rip)        # ffffffff86704e39 <_end+0xffffffff77c134b9>
+  403feb:	8c 05 48 0e 30 86    	mov    %es,-0x79cff1b8(%rip)        # ffffffff86704e39 <_end+0xffffffff7ee842b9>
   403ff1:	06                   	(bad)  
   403ff2:	48 0e                	rex.W (bad) 
   403ff4:	38 83 07 4d 0e 40    	cmp    %al,0x400e4d07(%rbx)
@@ -5165,7 +5161,7 @@ Disassembly of section .comment:
    5:	28 55 62             	sub    %dl,0x62(%rbp)
    8:	75 6e                	jne    78 <_init-0x400a08>
    a:	74 75                	je     81 <_init-0x4009ff>
-   c:	20 35 2e 34 2e 30    	and    %dh,0x302e342e(%rip)        # 302e3440 <_end+0x217f1ac0>
+   c:	20 35 2e 34 2e 30    	and    %dh,0x302e342e(%rip)        # 302e3440 <_end+0x28a628c0>
   12:	2d 36 75 62 75       	sub    $0x75627536,%eax
   17:	6e                   	outsb  %ds:(%rsi),(%dx)
   18:	74 75                	je     8f <_init-0x4009f1>
