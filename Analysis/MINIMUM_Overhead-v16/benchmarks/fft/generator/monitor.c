@@ -88,7 +88,7 @@ struct BBNode;
 //#define ACES_APP_DEBUG
 //#define ACES_MON_DEBUG
 //#define ACES_MINIMAL_DEBUG
-#define MONITOR_PROCESS_DEBUG
+//#define MONITOR_PROCESS_DEBUG
 
 
 /* 2. signature queue size table */

@@ -47,17 +47,13 @@ Disassembly of section .note.gnu.build-id:
   40027e:	00 00                	add    %al,(%rax)
   400280:	47                   	rex.RXB
   400281:	4e 55                	rex.WRX push %rbp
-  400283:	00 42 ca             	add    %al,-0x36(%rdx)
-  400286:	f3 f1                	repz icebp 
-  400288:	66 92                	xchg   %ax,%dx
-  40028a:	56                   	push   %rsi
-  40028b:	8f                   	(bad)  
-  40028c:	2b a7 2e 21 21 d2    	sub    -0x2ddeded2(%rdi),%esp
-  400292:	b7 ed                	mov    $0xed,%bh
-  400294:	bd                   	.byte 0xbd
-  400295:	4f                   	rex.WRXB
-  400296:	d0                   	.byte 0xd0
-  400297:	a2                   	.byte 0xa2
+  400283:	00 6b a3             	add    %ch,-0x5d(%rbx)
+  400286:	36 bf 28 5e f2 9c    	ss mov $0x9cf25e28,%edi
+  40028c:	e6 e8                	out    %al,$0xe8
+  40028e:	b7 69                	mov    $0x69,%bh
+  400290:	02 a1 7f 93 61 0c    	add    0xc61937f(%rcx),%ah
+  400296:	1d                   	.byte 0x1d
+  400297:	01                   	.byte 0x1
 
 Disassembly of section .gnu.hash:
 
@@ -3783,7 +3779,7 @@ Disassembly of section .text:
   403d41:	eb 0a                	jmp    403d4d <CFE_INJECTION+0x112>
   403d43:	bf 7a 49 40 00       	mov    $0x40497a,%edi
   403d48:	e8 13 ce ff ff       	callq  400b60 <puts@plt>
-  403d4d:	e9 4b d2 ff ff       	jmpq   400f9d <main+0x1ad>
+  403d4d:	e9 e7 df ff ff       	jmpq   401d39 <SolveCubic+0x4d9>
   403d52:	eb 01                	jmp    403d55 <CFE_INJECTION+0x11a>
   403d54:	90                   	nop
   403d55:	c9                   	leaveq 
