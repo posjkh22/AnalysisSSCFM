@@ -533,7 +533,11 @@ void enqueue_signature_with_call(int i)
 
 
 	/* App Stack PUSH in Call-type BasicBlock */
-	static_push(0, i);
+	//static_push(0, i);
+
+	/* The optimized static_push */
+	stack_pool[0].node_pool[stack_pool[0].size] = i;
+	stack_pool[0].size++;
 
 
 	/* 	If signature_queue is full */
@@ -577,7 +581,11 @@ void enqueue_signature_with_return(int i)
 	
 
 	/* App Stack POP in Call-type BasicBlock */
-	static_pop(0);
+	//static_pop(0);
+
+	/* The optimized statiic_pop */
+	stack_pool[0].node_pool[--stack_pool[0].size];
+
 
 	/* 	If signature_queue is full */
 	/*

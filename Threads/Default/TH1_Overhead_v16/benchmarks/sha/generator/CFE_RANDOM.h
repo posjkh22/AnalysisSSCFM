@@ -1,1 +1,1 @@
-#define CFE_JUMP "jmp 0x400f3b ;"
+#define CFE_JUMP "jmp 0x400e81 ;"
